@@ -1,5 +1,5 @@
 {% set name = "pylink-square" %}
-{% set version = "0.14.1" %}
+{% set version = "0.14.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pylink-square-{{ version }}.tar.gz
-  sha256: ff807532f7a615193f4ecc7f969287a51383f32fdd41cfa2694822c4b16e9721
+  sha256: 1c403c00b15d60e28721370fcbfeb9a558f4971daff0a707ae6ccc5d2acb2e2f
 
 build:
   entry_points:
     - pylink = pylink.__main__:main
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
