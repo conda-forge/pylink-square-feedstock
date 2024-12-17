@@ -6,27 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pylink-square-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pylink-square-{{ version }}.tar.gz
   sha256: 4fe5a0a148cdcd234387c73cbc1c6c2ffb84a8ba96f183f0285d9946f5f9533a
 
 build:
   entry_points:
     - pylink = pylink.__main__:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - behave
-    - coverage
-    - pip
+    - python
     - psutil
+    - behave
+    - six
+    - coverage
     - pypandoc
-    - python
+    - pylink
+    - pip
   run:
-    - future
-    - psutil >=5.2.2
     - python
+    - psutil >=5.2.2
     - six
 
 test:
@@ -42,7 +43,10 @@ about:
   home: http://www.github.com/Square/pylink
   summary: Python interface for SEGGER J-Link.
   license: Apache-2.0
-  license_file: LICENSE.md
+  license_file:
+    - LICENSE.md
+    - tests/functional/features/jlink/license.feature
+    - tests/functional/features/steps/licenses.py
 
 extra:
   recipe-maintainers:
