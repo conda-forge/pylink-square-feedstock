@@ -19,11 +19,8 @@ requirements:
   host:
     - python
     - psutil
-    - behave
     - six
     - coverage
-    - pypandoc
-    - pylink
     - pip
     - setuptools
   run:
